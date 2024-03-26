@@ -1,0 +1,12 @@
+<div>
+  <div class="h1">{{type}}</div>
+  <hr />
+  <div *ngFor="let details from data; let i = index">
+    @if(details.status === type){
+    <div>{{details.name}}</div>
+    @if(details.status !== ftbh){
+        <button (click)="moveToNextData(i)"> Next </button>
+    }
+    }
+  </div>
+</div>
