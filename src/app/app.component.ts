@@ -3,13 +3,14 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { RouterOutlet } from '@angular/router';
 import { PetDetail, statusType } from './model/status.model';
 import { StatusBoxComponent } from './components/status-box/status-box.component';
+import { DataPasserService } from './service/data-passer.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, StatusBoxComponent],
+  imports: [RouterOutlet, ReactiveFormsModule, StatusBoxComponent,],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'AngularLiveCoding';
@@ -17,12 +18,12 @@ export class AppComponent {
   listed = statusType.listed;
   exam = statusType.exam;
   fbth = statusType.fbth;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public dataPasser: DataPasserService) {
   }
   animalDetails: PetDetail[] = [];
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required,]]
+      name: ['', [Validators.required]]
     })
   }
 
@@ -35,6 +36,6 @@ export class AppComponent {
       status: statusType.listed
     }
     this.animalDetails.push(petInfo);
-
+    this.dataPasser.updateAnimalData(this.animalDetails);
   }
 }

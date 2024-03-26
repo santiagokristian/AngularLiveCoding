@@ -28,13 +28,13 @@
 </div>
 <div class="row">
   <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="listed" />
+    <app-status-box [type]="listed" />
   </div>
   <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="exam" />
+    <app-status-box  [type]="exam" />
   </div>
   <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="fbth" />
+    <app-status-box  [type]="fbth" />
   </div>
 </div>
 <router-outlet />
