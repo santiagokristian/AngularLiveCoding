@@ -15,9 +15,7 @@ import { DataPasserService } from './service/data-passer.service';
 export class AppComponent {
   title = 'AngularLiveCoding';
   form: FormGroup = new FormGroup({ name: new FormControl('') });
-  listed = statusType.listed;
-  exam = statusType.exam;
-  fbth = statusType.fbth;
+  statusList = Object.values(statusType);
   constructor(private formBuilder: FormBuilder, public dataPasser: DataPasserService) {
   }
   animalDetails: PetDetail[] = [];
