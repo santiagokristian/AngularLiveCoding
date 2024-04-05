@@ -27,14 +27,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="listed" />
-  </div>
-  <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="exam" />
-  </div>
-  <div class="col-4">
-    <app-status-box [data]="animalDetails" (type)="fbth" />
-  </div>
+  @for (status of statusList; track $index) {
+    <div class="col-4">
+      <app-status-box [type]="status" />
+    </div>
+  }
 </div>
 <router-outlet />
